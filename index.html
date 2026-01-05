@@ -568,10 +568,16 @@
             </div>
         </div>
 
-        <!-- Slide 3 -->
+        <!-- Slide 3 dengan Foto -->
         <div class="screen" id="screen3">
             <div class="emoji">🌟</div>
             <h2>Kamu Spesial</h2>
+            
+            <!-- FOTO MUNCUL DI SINI -->
+            <div class="photo-frame">
+                <img src="" id="lovePhoto" alt="Foto Kamu">
+            </div>
+            
             <p>
                 Setiap senyum kamu,<br> setiap tawa kamu,<br> setiap hal kecil yang kamu lakuin...<br><br>
                 <span class="highlight">Semuanya berarti</span> buat aku.
@@ -786,44 +792,11 @@
 
     <script>
         // ===== GANTI LINK FOTO DI SINI =====
-        // Foto untuk setiap slide (kosongkan jika slide tidak pakai foto)
-        const FOTO_SLIDES = {
-            1: 'dia.jpeg',    // Slide 1
-            2: 'foto2.jpg',    // Slide 2
-            3: 'foto3.jpg',    // Slide 3
-            4: 'foto4.jpg',    // Slide 4
-            5: 'foto5.jpg',    // Slide 5
-            6: 'foto6.jpg',    // Slide 6
-            7: 'foto7.jpg',    // Slide 7
-            8: 'foto8.jpg',    // Slide 8
-            9: 'foto9.jpg',    // Slide 9
-            10: 'foto10.jpg'   // Slide 10
-        };
+        const FOTO_URL = 'dia.jpeg';
         // ===================================
         
-        // Function untuk menambahkan foto ke slide
-        function addPhotoToSlides() {
-            Object.keys(FOTO_SLIDES).forEach(slideNum => {
-                const fotoUrl = FOTO_SLIDES[slideNum];
-                if (fotoUrl) {  // Hanya tambahkan foto jika URL-nya ada
-                    const screen = document.getElementById('screen' + slideNum);
-                    const emoji = screen.querySelector('.emoji');
-                    
-                    // Cek apakah sudah ada photo-frame
-                    if (!screen.querySelector('.photo-frame')) {
-                        const photoFrame = document.createElement('div');
-                        photoFrame.className = 'photo-frame';
-                        photoFrame.innerHTML = `<img src="${fotoUrl}" alt="Foto Kamu">`;
-                        
-                        // Insert foto setelah emoji
-                        emoji.insertAdjacentElement('afterend', photoFrame);
-                    }
-                }
-            });
-        }
-        
-        // Load semua foto saat halaman dimuat
-        addPhotoToSlides();
+        // Load foto
+        document.getElementById('lovePhoto').src = FOTO_URL;
 
         // Floating hearts
         function createHearts() {
@@ -861,4 +834,12 @@
         }
 
         function chat() {
-            window.open('https://wa.me/6285179722039?text=Aku%20sayang%20
+            window.open('https://wa.me/6285179722039?text=Aku%20sayang%20kamu%20%F0%9F%A5%B0%F0%9F%92%95', '_blank');
+        }
+
+        createHearts();
+        createSparkles();
+    </script>
+</body>
+
+</html>
